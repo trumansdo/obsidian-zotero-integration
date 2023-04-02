@@ -36,8 +36,7 @@ export function sanitizeFilePath(filePath: string) {
   const parsed = path.parse(filePath);
   const dir = replaceIllegalChars(parsed.dir);
   const name = replaceIllegalChars(parsed.name);
-
-  return path.join(dir, `${name}${parsed.ext}`);
+  return path.join(dir, `${name}${parsed.ext}`).split(path.sep).join('/');
 }
 
 function hexToHSL(str: string) {
